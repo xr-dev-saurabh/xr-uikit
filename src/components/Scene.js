@@ -12,22 +12,22 @@ export const Scene = ({ store }) => {
   return (
     <>
       <mesh ref={meshRef} position={[0, 0, 0]}>
-        <sphereGeometry args={[1, 64, 64]} />
+        <sphereGeometry args={[100, 64, 64]} />
         <meshBasicMaterial map={texture} side={THREE.BackSide} />
       </mesh>
-      <group position={[0, 0, -0.5]}>
+      <group position={[0, 0, -99.5]}>
         <Root pixelSize={0.001} position={[0, 0, 0.5]}>
           <Container
-            width="10%"
+            width="100%"
             display="flex"
             alignItems="center"
             justifyContent="center"
           >
-            <Button size="fit" variant="ghost" onClick={() => store.destroy()}>
+            <Button size="fit" variant="ghost" onClick={() => store.getState().session?.end()}>
               <Text
-                fontSize={18}
+                fontSize={4880}
                 fontWeight={500}
-                lineHeight={28}
+                lineHeight={4990}
                 color="rgb(243,244,246)"
                 flexDirection="column"
               >

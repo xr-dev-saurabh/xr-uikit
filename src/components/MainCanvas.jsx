@@ -5,14 +5,17 @@ import { PiVirtualReality } from "react-icons/pi";
 import CameraOrbital from "./CameraOrbital";
 import Scene from "./Scene";
 
-const store = createXRStore();
+
+const store = createXRStore(
+    { controller: { rayPointer: { rayModel: { maxLength: 100000 } } } }
+);
 
 export const MainCanvas = () => {
   return (
     <div id="canvas-container" className="w-full h-screen relative">
       <Canvas>
         <XR store={store}>
-          <XROrigin scale={0.001} position={[0, 0.05, 0]} />
+          <XROrigin position={[0, 0.05, 0]} />
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <CameraOrbital />
