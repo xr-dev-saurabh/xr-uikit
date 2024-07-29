@@ -1,9 +1,21 @@
 import React, { useRef } from "react";
 import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
-import { Container, Text, Root } from "@react-three/uikit";
+import { Container, Text, Root, Image } from "@react-three/uikit";
 import { Button } from "@react-three/uikit-default";
 import Image1 from "../assets/Bedroom2.png";
+
+const textLines = [
+  "Hello",
+  "World",
+  "We",
+  "Are",
+  "Here",
+  "To",
+  "Do",
+  "Some",
+  "Test",
+];
 
 export const Scene = ({ store }) => {
   const texture = useLoader(THREE.TextureLoader, Image1);
@@ -12,28 +24,42 @@ export const Scene = ({ store }) => {
   return (
     <>
       <mesh ref={meshRef} position={[0, 0, 0]}>
-        <sphereGeometry args={[100, 64, 64]} />
+        <sphereGeometry args={[25, 64, 64]} />
         <meshBasicMaterial map={texture} side={THREE.BackSide} />
       </mesh>
-      <group position={[0, 0, -99.5]}>
-        <Root pixelSize={0.001} position={[0, 0, 0.5]}>
+      <group position={[0, 0, -20.5]}>
+        <Root>
           <Container
-            width="100%"
+            zIndexOffset={20}
+            positionType="static"
+            inset={10}
             display="flex"
-            alignItems="center"
-            justifyContent="center"
+            backgroundColor={"#ffffff"}
+            maxWidth={800}
+            maxHeight={600}
+            alignItems="flex-start"
+            borderRadius={18}
+            overflow={"scroll"}
           >
-            <Button size="fit" variant="ghost" onClick={() => store.getState().session?.end()}>
-              <Text
-                fontSize={4880}
-                fontWeight={500}
-                lineHeight={4990}
-                color="rgb(243,244,246)"
-                flexDirection="column"
-              >
-                Exit VR
-              </Text>
-            </Button>
+            {textLines.map((line, index) => {
+              console.log("Line:", line);
+              console.log("Index:", index);
+              return (
+                <Text
+                  key={index}
+                  positionType="relative"
+                  display={"flex"}
+                  fontSize={70}
+                  overflow={"scroll"}
+                  color="#000000"
+                  marginTop={index === 0 ? 50 : 0}
+                  letterSpacing={0}
+                  marginLeft={18}
+                >
+                  {line}
+                </Text>
+              );
+            })}
           </Container>
         </Root>
       </group>
