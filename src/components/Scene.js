@@ -4,6 +4,7 @@ import { useLoader } from "@react-three/fiber";
 import { Container, Text, Root, Image } from "@react-three/uikit";
 import { Button } from "@react-three/uikit-default";
 import Image1 from "../assets/Bedroom2.png";
+import IconClose from "../assets/closeIcon.png";
 
 const textLines = [
   "Hello",
@@ -41,6 +42,18 @@ export const Scene = ({ store }) => {
             borderRadius={18}
             overflow={"scroll"}
           >
+
+          <Image
+                   
+                    src={IconClose}
+                    positionType="absolute"
+                    positionTop={0}
+                    positionRight={0}
+                    width={70}
+                    height={70}
+                    cursor="pointer"
+                  ></Image>
+
             {textLines.map((line, index) => {
               console.log("Line:", line);
               console.log("Index:", index);
