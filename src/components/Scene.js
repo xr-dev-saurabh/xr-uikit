@@ -7,7 +7,10 @@ import Image1 from "../assets/Bedroom2.png";
 import IconClose from "../assets/closeIcon.png";
 
 const textLines = [
-  "Hello",
+  "Hello wudcnnv wvkn ceevjk vwvkj vwevkjn vvekvj  wewek",
+  "Hello wudcnnv wvkn ceevjk vwvkj vwevkjn vvekvj  wewek",
+  "Hello wudcnnv wvkn ceevjk vwvkj vwevkjn vvekvj  wewek",
+  "Hello wudcnnv wvkn ceevjk vwvkj vwevkjn vvekvj  wewek",
   "World",
   "We",
   "Are",
@@ -35,6 +38,7 @@ export const Scene = ({ store }) => {
             positionType="static"
             inset={10}
             display="flex"
+            flexDirection={"column"}
             backgroundColor={"#ffffff"}
             maxWidth={800}
             maxHeight={600}
@@ -62,12 +66,13 @@ export const Scene = ({ store }) => {
                   key={index}
                   positionType="relative"
                   display={"flex"}
-                  fontSize={70}
+                  fontSize={69}
                   overflow={"scroll"}
                   color="#000000"
                   marginTop={index === 0 ? 50 : 0}
                   letterSpacing={0}
                   marginLeft={18}
+                  
                 >
                   {line}
                 </Text>
